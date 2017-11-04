@@ -1,0 +1,61 @@
+<!doctype html>
+
+<!-- https://www.w3schools.com/angular/ Referenced for learning Angular JS
+    https://www.youtube.com/watch?v=OPxeCiy0RdY Referenced to learn some examples
+-->
+
+<!-- Angular JS extends html attributes by directives -->
+<!-- Lets bind module, say it "dummy-module" , it will be referenced in JS file -->
+<!-- ***ng-app***   NG has no fullform , it is derived from aNGular (pay attention to upper case letters)
+    It is a directive that tells Angular JS that this is a root element for JS application
+    Angular JS applications must have a root element(element means tag). An HTML doc can have just one ng-app element(since it is
+    a root element)
+    It is normally put in html or body tag.
+    HTML content insided ng-app can use Angular JS code.
+
+    **************PS : If use more than 1 then only first one is used..**************
+
+    This is set so that Angular JS knows where to start compiling code :) Interesting so far? Keep reading... :D
+
+    ***ng-init***
+    It is also a directive that initialize application data by assigning different values to variables
+
+ -->
+<html ng-app="dummy-module" ng-init="
+                                      car = {brand: 'Honda', color: 'white'};
+                                      laptops = [{brand: 'Dell', model: 'Inspiron', price:'$1000'},
+                                                 {brand: 'HP', model:'Pavilion', price:'$1320'}]
+                                    ">
+  <head>
+    <title> Angular JS Sample Programs </title>
+  </head>
+
+  <body>
+    <h1> Hello, welcome to my Angular JS example  </h1>
+    <!--  Loading the angular JS -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+    </script>
+
+    <script src="D:/School/USF College/Full time Practise/Angular JS/Practise/JS/Basics.js" type="text/javascript"></script>
+
+    <!--
+          Lets add controller to our body, it will be our view
+          div element will be treated as our view and all elements in it too
+    -->
+    <div ng-controller="controller1">
+
+        <span>Values: </span>
+        <input type="text" ng-model="first" />
+        <input type="text" ng-model="second" />
+
+        <button ng-click="updateValue()">Multiply us </button>
+
+        <br/>
+        <br/>
+        <p> {{calculation}} </p>
+
+        <p> I am using exxpression to add 2 numbers 1 & 4 :::  {{1+4}} </p>
+
+    </div>
+</html>
