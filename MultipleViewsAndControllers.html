@@ -1,0 +1,40 @@
+<!doctype html>
+
+<!-- https://www.w3schools.com/angular/ Referenced for learning Angular JS
+    https://www.youtube.com/watch?v=OPxeCiy0RdY Referenced to learn some examples
+-->
+
+<html ng-app="multiple-contollers-and-views">
+  <head>
+    <title> Multiple controller and multiple views example </title>
+  </head>
+
+
+  <body>
+    <h1> Hello, welcome to my Angular JS example of Multiple Views and Controllers  </h1>
+    <!--  Loading the angular JS -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+    </script>
+    <script src="Path to ../JS/MultipleViewsAndControllers.js" type="text/javascript"></script>
+
+    <!--  Defining 2 controllers -->
+
+    <!--  First controller -->
+    <!--  Here we have one controller and 2 views-->
+    <h4 style="color:green"> Controller1: Random odd and even number generated between 1 and 100, reload to see new values:</h4>
+    <h5 ng-controller="controller1"> Random Odd number: {{randomOdd}} </h5>
+    <h5 ng-controller="controller1"> Random Even number: {{randomEven}} </h5>
+
+    <!-- Use 2nd controller -->
+    <h4 style="color:green"> Controller2: Random day</h4>
+    <h5 style="color:blue" ng-controller="controller2"> Random day is {{randomDay}} </h5>
+
+    <!-- Use 3rd controller -->
+    <h4 style="color:green"> Controller3: Random month</h4>
+    <h5 style="color:gray" ng-controller="controller3"> Random month is {{randomMonth}} </h5>
+
+
+  </body>
+
+</html>
