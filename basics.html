@@ -55,7 +55,32 @@
         <br/>
         <p> {{calculation}} </p>
 
-        <p> I am using exxpression to add 2 numbers 1 & 4 :::  {{1+4}} </p>
+        <h4>Showing user inputs:</h4>
+        <!-- Expression bind data directly to HTML model -->
+        <p> First value is {{first}} </p>
+
+        <!-- Another way to bind data to html elements-->
+        <p>
+          Second value is <span data-ng-bind="second"></span>
+        </p>
+
+        <!-- Using information of ng-init, we can build string in expressions -->
+        <!-- Getting just one  -->
+        <h4> Data of ng-init having variable with just one value </h4>
+        <p>
+          {{car.brand + " car of color " + car.color}}
+        </p>
+
+        <!-- Using ng-init to cycle through all elements of array-->
+        <!-- If you are aware of java programming then it is like for each loop -->
+        <h4> Iterating all items from list: </h4>
+        <ul>
+          <li ng-repeat="currLaptop in laptops">
+            {{"laptop brand " + currLaptop.brand + " with model "
+               + currLaptop.model + " costs " + currLaptop.price
+            }}
+          </li>
+        </ul>
 
     </div>
 </html>
