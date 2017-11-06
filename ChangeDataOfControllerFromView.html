@@ -1,0 +1,79 @@
+<!doctype html>
+
+<!-- https://www.w3schools.com/angular/ Referenced for learning Angular JS
+    https://www.youtube.com/watch?v=OPxeCiy0RdY Referenced to learn some examples
+-->
+
+<html ng-app="data-change-of-controller-in-veiws">
+  <head>
+    <title> Change data of controller in views example </title>
+  </head>
+
+
+  <body>
+    <h1> Hello, welcome to my Angular JS example of changing controller data in views  </h1>
+    <!--  Loading the angular JS -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+    </script>
+    <script src="Path to.../JS/ChangeDataOfControllerFromView.js" type="text/javascript"></script>
+
+    <div id="classesList" ng-controller="clsTakenListCtr">
+      <!--  We can get lenght of array just like we do in Java, Amazing, right? ;) -->
+      <h3> {{classes.length}} classes to take this semester </h3>
+
+      <!-- Instead of using expressions like above, we can also use
+            directive "ng-bind" to get size of classes array but I like
+            expressions {{}} because its simple and convenient :) You can do either way though :D
+      -->
+
+      <!--  Inline styling is not preferred!!! It's dirty way of styling html.
+            Best way is to create classes and declare them in html elements
+      -->
+      <ol style="margin: 0 0 -20px 0;">
+        <li> <b>{{classes[0].subject}}</b> and your current registeration status is <b>{{classes[0].taken}}</b> </li>
+      </ol>
+
+      <!--  We have to use ng-repeat to iterate for all values of array-->
+      <!-- Since I have declared one above already so lets skip the first
+           class from ng-repeat
+      -->
+
+      <ol start="2">
+        <!-- Just like for-each loop -->
+        <!-- bg-if directive is used so that we don't print
+            the one which was printed with 0 index explicitly!
+       -->
+        <li ng-repeat="curClass in classes" ng-if="$index > 0">
+          <b>{{curClass.subject}}</b> and your current registeration status is <b>{{curClass.taken}}</b>
+        </li>
+      </ol>
+
+      <!-- Change 1st class from html - This part now justifies title of  file
+          SORRY! I had to list items first then only I could come at this point of code
+          Okay, move on now... ;)
+      -->
+      <h3 style="color:green"> Oops, This is wrong list of sunjects, I need to change them </h3>
+      <h4> You will notice whatever you type-in here will reflect change in model data and above list will change accordingly </h4>
+
+      <label> Change 1st subject: </label>
+      <input ng-model="classes[0].subject"/>
+      <br><br/>
+
+      <label> Change 2nd subject: </label>
+      <input ng-model="classes[1].subject"/>
+      <br/><br/>
+
+      <label> Change 3rd subject: </label>
+      <input ng-model="classes[2].subject"/>
+      <br/><br/>
+
+      <label> Change 4th subject: </label>
+      <input ng-model="classes[3].subject"/>
+      <br/>
+
+    </div>
+
+  </body>
+
+</html>
